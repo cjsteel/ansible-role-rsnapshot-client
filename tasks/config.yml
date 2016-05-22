@@ -7,7 +7,7 @@
 - name: Sudo configuration for the backup system user
   template: src=sudo_backupuser dest=/etc/sudoers.d/{{ rsnapshot_slave_user }}
             owner=root group=root mode=0440
-  when: ansible_os_family == "Debian" and ansible_lsb.major_release|int >= 6
+#  when: ansible_os_family == "Debian" # and ansible_lsb.major_release|int >= 6
 
 - name: Retrieve the SSH public key on the rsnapshot master
   delegate_to: "{{ rsnapshot_master_host }}"
